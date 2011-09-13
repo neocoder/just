@@ -1,77 +1,4 @@
 #!/usr/bin/env node
-var Xproject = {
-    projectName: "solt",
-    deployDir: "solt-deploy",
-    licenseText: "solt framework {version}\nCopyright(c) 2010-{[new Date().format('Y')]}, {company}\n{contactEmail}\n{site}",
-    variables: {
-        "company":"Alex Ladyga",
-        "version":"1.0",
-        "contactEmail":"alexladyga@glocksoft.com",
-        "site":"http://www.soltjs.com/"
-    },
-    pkgs: [
-	    {
-	        file: "solt.js",
-	        // type: "js",
-	        //fileIncludes: [
-	        contents: [
-	        	{ 
-		        	path: "src", 
-		        	files: "*.js"
-						// files: [
-						// 	"1.js",
-						// 	"2.js",
-						// 	"3.js"
-						// ]
-	        	}
-				//{ text: "4.js",	path: "src/" }
-				// { text: "string.js",		path: "src/" },
-				// { text: "array.js",			path: "src/" },
-				// { text: "log.js",			path: "src/" },
-				// { text: "f.js",				path: "src/" },
-				// { text: "wand.js",			path: "src/" },
-				// { text: "css.js",			path: "src/" },
-				// { text: "paths.js",			path: "src/paths/" },
-				
-				// { text: "events.js",		path: "src/events/" },
-				
-				// { text: "dom.js",			path: "src/dom/" },
-				// { text: "element.js",		path: "src/dom/" },				
-				// { text: "metaNode.js",		path: "src/dom/" },
-				// { text: "selector.js",		path: "src/dom/" },
-				// { text: "nObject.js",		path: "src/dom/" },
-
-				// { text: 'control.js', 		path: "src/ui/control/" },
-				// { text: 'app.js', 			path: "src/ui/app/" },
-
-				// { text: 'hflexbox.js', 		path: "src/ui/layout/hflexbox/" },
-				// { text: 'button.js', 		path: "src/ui/button/" }				
-			]	
-		},
-		{
-			file: "solt.css",
-			contents: [
-				{ path: "src", files: "*.css" }
-			]
-		}
-	],
-	resources: [
-		{ src: "src/ui/button/", dest: "images/", filters: ".*[\\.jpg|\\.png|\\.gif]" }
-	],
-    "// resources": [
-		{
-			src: "glock/",
-			dest: "/",
-			filters: ".*[\\.html]"
-		},
-		{
-			src: "glock.ui/images/",
-			dest: "images/",
-			filters: ".*[\\.jpg|\\.png|\\.gif]"
-		}
-    ]
-};
-
 
 // -- Loading NODE stuff
 
@@ -284,14 +211,8 @@ if ( args.length < 3 ) {
 					.replace(/(:\s+)'/ig, '$1"')
 					.replace(/',/ig, '",');
 
-	fs.writeFileSync('test.js', projectSrc);
 
-	//console.log(projectSrc);
-
-	//try {
-		project = JSON.parse(projectSrc);
-	// } catch(e) {
-	// }
+	project = JSON.parse(projectSrc);
 
 	if ( project ) {
 		buildProject(project);	
